@@ -3,28 +3,50 @@ import java.awt.Color;
 
 public class Property {
     
+    Color color;
+    String name;
+    String owner;
+    int numHouses;
+    int cost;
+    int rent;
+    int houseCost;
+    
+
+    public Property(String n, int cB, int r, Color c, int cH, String o){
+            color = c;
+            name = n;
+           owner = o;
+            numHouses = 0;
+            cost = cB;
+            rent = r;
+            int houseCost = cH;
+
+    }
+//eventually have an addhouses method
+
     //TODO fix
     public Color getColor(){
-        return new Color(255, 0, 0);
+        return color;
     }
 
     //TODO fix
     public String getName(){
-        return "nothing";
+        return name;
     }
 
     //TODO fix
     public int getNumHouses(){
-        return 5;
+        return numHouses;
     }
 
     //TODO fix
     public String getOwner(){
-        return "no one";
+        return owner;
     }
 
     //TODO fix
     public int getRent(){
-        return 20;
+        return rent;
     }
+    
 }
