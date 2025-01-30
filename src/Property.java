@@ -37,6 +37,8 @@ public class Property {
     //TODO fix
     public int getNumHouses(){
         return numHouses;
+        // if numhouses = 1 rentx2
+        //if =2 ; rentx3
     }
 
     //TODO fix

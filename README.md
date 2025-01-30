@@ -32,7 +32,7 @@ Display.java methods that you will use:
 Important Modifications
 
     We're not going to worry about mortgaging properties or hotels right now!
-    In addition, we will use the following rent scheme:
+    In addition, we will use the following rent scheme: //all under property//
         1 house - double rent
         2 houses - triple rent
         etc.
@@ -45,6 +45,7 @@ Important Modifications
 
 
 Properties (in order)          Cost to buy          Base Rent           Color               Cost to buy a house
+
     Go                              --                  --                  --                  --
     Mediterranean Avenue            60                  2                   (102,51,0)          50
     Community Chest                 --                  --                  --                  --
@@ -56,6 +57,7 @@ Properties (in order)          Cost to buy          Base Rent           Color   
     Vermont Avenut                  100                 6                   (0,153,204)         50
     Connecticut Avenue              120                 8                   (0,153,204)         50
     Jail                            --                  --                  --                  --
+
     St. Charles Place               140                 10                  (204,68,204)        100
     Electric Company                150                 2xdice              --                  --
     States Avenue                   140                 10                  (204,68,204)        100
@@ -66,6 +68,7 @@ Properties (in order)          Cost to buy          Base Rent           Color   
     Tennessee Avenue                180                 14                  (204,68,204)        100
     New York Avenue                 200                 16                  (204,68,204)        100
     Free Parking                    --                  --                  --                  --
+
     Kentucky Avenue                 220                 18                  (255,0,0)           150
     Chance                          --                  --                  --                  --
     Indiana Avenue                  220                 18                  (255,0,0)           150
@@ -76,6 +79,7 @@ Properties (in order)          Cost to buy          Base Rent           Color   
     Water Works                     150                 2xdice              --                  --
     Marvin Gardens                  280                 24                  (255,255,51)        150
     Go to Jail                      --                  --                  --                  --
+
     Pacific Avenue                  300                 26                  (51,153,51)         200
     North Carolina Avenue           300                 26                  (51,153,51)         200
     Community Chest                 --                  --                  --                  --
