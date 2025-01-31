@@ -14,15 +14,15 @@ public class Board {
         Display.properties = properties;
         //first row
         properties[0][0] = new Property("Go", 0, 0, Color.BLACK, 0, "none");
-        properties[1][0] = new Property("Mediterranean Avenue ", 60, 2,(new Color(102, 51, 0)), 50, "none");
+        properties[1][0] = new Property("Mediterr... Avenue ", 60, 2,(new Color(102, 51, 0)), 50, "none");
         properties[2][0] = new Property("Community Chest", 0, 0, Color.BLACK, 0, "none");
         properties[3][0] = new Property("Baltic Avenue", 60, 4, (new Color(102, 51, 0)), 50, "none");
         properties[4][0] = new Property("Income Tax", 0, 0, Color.BLACK, 0, "none");
         properties[5][0] = new Property("Reading Railroad", 200, 25, Color.BLACK, 0, "none");
-        properties[6][0] = new Property("Oriental Avenue", 100, 6, (new Color(0, 153, 204)), 50, "none");
+        properties[6][0] = new Property("Oriental Avenue", 100, 6, (new Color(0, 180, 250)), 50, "none");
         properties[7][0] = new Property("Chance", 0, 0, Color.BLACK, 0, "none");
-        properties[8][0] = new Property("Vermont Avenue", 100, 6, (new Color(0, 153, 204)), 50, "none");
-        properties[9][0] = new Property("Conneticut Avenue", 120, 8, (new Color(0, 153, 204)), 50, "none");
+        properties[8][0] = new Property("Vermont Avenue", 100, 6, (new Color(0, 180, 250)), 50, "none");
+        properties[9][0] = new Property("Conneticut Avenue", 120, 8, (new Color(0, 180, 250)), 50, "none");
         properties[10][0] = new Property("Jail", 0, 0, Color.BLACK, 0, "none");
         
         properties[10][1] = new Property("St. Charles Place", 140, 10, (new Color(204, 68, 204)), 100, "none");
@@ -53,9 +53,9 @@ public class Board {
         properties[0][6] = new Property("Pennsylvania Avenue", 320, 28, (new Color(51, 153, 51)), 200, "none");
         properties[0][5] = new Property("Short Line Railroad", 200, 25, Color.BLACK, 0, "none");
         properties[0][4] = new Property("Chance", 0, 0, Color.BLACK, 0, "none");
-        properties[0][3] = new Property("Park Place", 350, 35, (new Color(51, 153, 51)), 200, "none");
+        properties[0][3] = new Property("Park Place", 350, 35, (new Color(0, 0, 204)), 200, "none");
         properties[0][2] = new Property("Luxury Tax", 0, 0, Color.BLACK, 0, "none");
-        properties[0][1] = new Property("Boardwalk", 400, 50, (new Color(51, 153, 51)), 200, "none");
+        properties[0][1] = new Property("Boardwalk", 400, 50, (new Color(0, 0, 204)), 200, "none");
         
        
    
