@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class Player {
 
@@ -21,6 +22,19 @@ public class Player {
         location = 0;
     }
     
+    public String rollDice(){
+        int d1 = (int)Math.ceil(Math.random()*6);
+        int d2 = (int)Math.ceil(Math.random()*6);
+
+        int roll = d1+d2;
+        if((roll+location)%40<(roll+location)){
+            money+=200;
+        }
+        location = (roll + location)%40;
+        
+        return (String.valueOf(roll));
+    }
+
     //TODO FIX
     public String getName(){
         return name;

@@ -10,6 +10,7 @@ public class Display extends JFrame {
     static ArrayList<Player> players = new ArrayList<>(1);
     static JButton communityChest = new JButton("Community Chest");
     static JButton chance = new JButton("Chance");
+    static JButton roll = new JButton("Roll");
     static JLabel diceDisplay = new JLabel();
     static JFrame frame = new JFrame("Monopoly Game");
 
@@ -191,11 +192,19 @@ public class Display extends JFrame {
         chance.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /5)));
         frame.add(chance);
 
+        roll.setBackground(new Color(5, 160, 220));
+        roll.setBounds((int)(squareLength * 5.5), (int)(squareLength * 2.5), squareLength * 2, squareLength);
+        roll.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /5)));
+        frame.add(roll);
+
+    
+
         //Config dice display
         diceDisplay.setBounds((int)(squareLength * 8.5), (int)(squareLength * 2.5), squareLength * 2, squareLength);
         diceDisplay.setBackground(new Color(255, 255, 255));
         diceDisplay.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /5)));
         diceDisplay.setText("No rolls yet!");
+        
         frame.add(diceDisplay);
 
         communityChest.addActionListener(new ActionListener() {
@@ -209,6 +218,14 @@ public class Display extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(frame, "Chance Button Clicked!");
+            }
+        });
+
+        roll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(frame, "Roll Button Clicked!");
+                
             }
         });
 
@@ -233,7 +250,9 @@ public class Display extends JFrame {
                                             options[0]);
     }
 
-    public static void setDiceDisplay(String text){
-        diceDisplay.setText(text);
+    public static void setDiceDisplay(String m){
+        diceDisplay.setText(m);
+        boardPanel.repaint();
     }
+    
 }

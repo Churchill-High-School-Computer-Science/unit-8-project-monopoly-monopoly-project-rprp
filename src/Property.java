@@ -49,6 +49,8 @@ public class Property {
     //TODO fix
     public int getRent(){
         return rent;
+        // if numhouses = 1 rentx2
+        //if =2 ; rentx3
     }
     
 }
