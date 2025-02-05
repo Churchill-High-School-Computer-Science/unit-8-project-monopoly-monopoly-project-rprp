@@ -6,6 +6,7 @@ import javax.swing.*;
 
 public class Display extends JFrame {
 
+
     static Property[][] properties = new Property[11][11];
     static ArrayList<Player> players = new ArrayList<>(1);
     static JButton communityChest = new JButton("Community Chest");
@@ -183,24 +184,24 @@ public class Display extends JFrame {
 
         // Configure buttons
         communityChest.setBackground(new Color(5, 160, 220));
-        communityChest.setBounds((int)(squareLength * 2.5), (int)(squareLength * 2.5), squareLength * 2, squareLength);
+        communityChest.setBounds((int)(squareLength * 2.25), (int)(squareLength * 2.5), squareLength * 2, squareLength);
         communityChest.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /6)));
         frame.add(communityChest);
 
         chance.setBackground(new Color(5, 160, 220));
-        chance.setBounds((int)(squareLength * 5.5), (int)(squareLength * 2.5), squareLength * 2, squareLength);
+        chance.setBounds((int)(squareLength * 5.25), (int)(squareLength * 2.5), squareLength * 2, squareLength);
         chance.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /5)));
         frame.add(chance);
 
         roll.setBackground(new Color(5, 160, 220));
-        roll.setBounds((int)(squareLength * 5.5), (int)(squareLength * 2.5), squareLength * 2, squareLength);
+        roll.setBounds((int)(squareLength * 8.25), (int)(squareLength * 2.5), squareLength * 2, squareLength);
         roll.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /5)));
         frame.add(roll);
 
     
 
         //Config dice display
-        diceDisplay.setBounds((int)(squareLength * 8.5), (int)(squareLength * 2.5), squareLength * 2, squareLength);
+        diceDisplay.setBounds((int)(squareLength * 8.75), (int)(squareLength * 2.5), squareLength * 2, squareLength);
         diceDisplay.setBackground(new Color(255, 255, 255));
         diceDisplay.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /5)));
         diceDisplay.setText("No rolls yet!");
@@ -224,8 +225,13 @@ public class Display extends JFrame {
         roll.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "Roll Button Clicked!");
                 
+                (Monopoly.allPlayers.get(Monopoly.turn)).rollDice();
+                boardPanel.repaint();
+                frame.repaint();
+                Monopoly.turn++;
+                if(Monopoly.turn>3)
+                Monopoly.turn = 0;
             }
         });
 
@@ -251,8 +257,11 @@ public class Display extends JFrame {
     }
 
     public static void setDiceDisplay(String m){
-        diceDisplay.setText(m);
-        boardPanel.repaint();
+        SwingUtilities.invokeLater(() -> {
+            diceDisplay.setText(m);
+            roll.setText( "Last roll: " + m);
+
+        });
     }
     
 }

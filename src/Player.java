@@ -10,6 +10,7 @@ public class Player {
     ArrayList<Property> properties = new ArrayList<Property>();
     int location;
 
+    
     public Player(String n){
         name = n;
         money = 1500;

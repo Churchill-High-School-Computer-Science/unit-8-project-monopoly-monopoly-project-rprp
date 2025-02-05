@@ -12,6 +12,7 @@ public class Property {
     int houseCost;
     
 
+    
     public Property(String n, int cB, int r, Color c, int cH, String o){
             color = c;
             name = n;
