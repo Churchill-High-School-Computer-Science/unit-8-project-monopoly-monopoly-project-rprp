@@ -16,7 +16,7 @@ public class Property {
     public Property(String n, int cB, int r, Color c, int cH, String o){
             color = c;
             name = n;
-           owner = o;
+           owner = "none";
             numHouses = 0;
             cost = cB;
             rent = r;

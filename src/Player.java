@@ -12,16 +12,13 @@ public class Player {
 
     
     public Player(String n){
-        name = n;
+        this.name = n;
         money = 1500;
-        if(name.equals("Jasiah")){
-            money-=1500;
-        }
-        if(name.equals("Tyler")){
-            money-=4000;
-        }
+        
         location = 0;
     }
+
+
     
     public String rollDice(){
         int d1 = (int)Math.ceil(Math.random()*6);
@@ -32,9 +29,24 @@ public class Player {
             money+=200;
         }
         location = (roll + location)%40;
+        System.out.println(name + " " + location);
+        Monopoly.turn++;
+                if(Monopoly.turn>3)
+                Monopoly.turn = 0;
+
+                buyProperty();
         
         return (String.valueOf(roll));
     }
+
+    public void buyProperty(){
+        if((Board.propertiesMap.get(location)).getOwner().equals("none")&&Board.propertiesMap.get(location).cost<=money){
+            properties.add(Board.propertiesMap.get(location));
+        System.out.println(Board.propertiesMap.get(location).getName());
+        money-=Board.propertiesMap.get(location).cost;
+        Board.propertiesMap.get(location).owner = name;
+    }
+}
 
     //TODO FIX
     public String getName(){

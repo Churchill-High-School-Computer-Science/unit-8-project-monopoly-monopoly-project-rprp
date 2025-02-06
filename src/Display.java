@@ -148,7 +148,7 @@ public class Display extends JFrame {
                 for(Player player: players){
                     propertyOffset = squareLength / 4;
                     g2d.setColor(Color.BLACK);
-                    g2d.setFont(new Font("SansSerif", Font.PLAIN, (squareLength/5)));
+                    g2d.setFont(new Font("SansSerif", Font.PLAIN, (squareLength/8)));
 
                     g2d.drawString(player.getName(), (int)(squareLength * 2) + playerOffset, (int)(squareLength * 3.5));
                     g2d.drawString("$" + player.getMoney(), (int)(squareLength * 2) + playerOffset, (int)(squareLength * 3.5) + squareLength / 4);
@@ -201,7 +201,7 @@ public class Display extends JFrame {
     
 
         //Config dice display
-        diceDisplay.setBounds((int)(squareLength * 8.75), (int)(squareLength * 2.5), squareLength * 2, squareLength);
+        diceDisplay.setBounds((int)(squareLength * 8.25), (int)(squareLength * 1.75), squareLength * 2, squareLength);
         diceDisplay.setBackground(new Color(255, 255, 255));
         diceDisplay.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /5)));
         diceDisplay.setText("No rolls yet!");
@@ -226,12 +226,13 @@ public class Display extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                (Monopoly.allPlayers.get(Monopoly.turn)).rollDice();
+                
+                SwingUtilities.invokeLater(() -> {
+                    diceDisplay.setText(Monopoly.allPlayers.get(Monopoly.turn).getName() + " rolled a " + (Monopoly.allPlayers.get(Monopoly.turn)).rollDice());
+                });
                 boardPanel.repaint();
                 frame.repaint();
-                Monopoly.turn++;
-                if(Monopoly.turn>3)
-                Monopoly.turn = 0;
+                
             }
         });
 
