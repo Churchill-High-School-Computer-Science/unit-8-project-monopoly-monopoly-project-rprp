@@ -13,6 +13,7 @@ public class Display extends JFrame {
     static JButton chance = new JButton("Chance");
     static JButton roll = new JButton("Roll");
     static JLabel diceDisplay = new JLabel();
+    static JLabel paymentDisplay = new JLabel();
     static JFrame frame = new JFrame("Monopoly Game");
 
     static int squareLength = 68;
@@ -205,8 +206,15 @@ public class Display extends JFrame {
         diceDisplay.setBackground(new Color(255, 255, 255));
         diceDisplay.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /5)));
         diceDisplay.setText("No rolls yet!");
+
+        paymentDisplay.setBounds((int)(squareLength * 2.25), (int)(squareLength * 1.75), squareLength * 5, squareLength);
+        paymentDisplay.setBackground(new Color(255, 255, 255));
+        paymentDisplay.setFont(new Font("SansSerif", Font.PLAIN, (squareLength /5)));
+        paymentDisplay.setText("No payments yet!");
         
         frame.add(diceDisplay);
+        frame.add(paymentDisplay);
+    
 
         communityChest.addActionListener(new ActionListener() {
             @Override
@@ -261,6 +269,14 @@ public class Display extends JFrame {
         SwingUtilities.invokeLater(() -> {
             diceDisplay.setText(m);
             roll.setText( "Last roll: " + m);
+
+        });
+    }
+
+    public static void setPayDisplay(String m){
+        SwingUtilities.invokeLater(() -> {
+            paymentDisplay.setText(m);
+            
 
         });
     }

@@ -1,5 +1,8 @@
 
 import java.util.ArrayList;
+
+import javax.swing.SwingUtilities;
+
 import java.lang.Math;
 
 public class Player {
@@ -18,6 +21,10 @@ public class Player {
         location = 0;
     }
 
+    public void addMoney(int mAdd){
+        money+=mAdd;
+    }
+
 
     
     public String rollDice(){
@@ -29,24 +36,50 @@ public class Player {
             money+=200;
         }
         location = (roll + location)%40;
-        System.out.println(name + " " + location);
+        
         Monopoly.turn++;
                 if(Monopoly.turn>3)
                 Monopoly.turn = 0;
-
+                Display.paymentDisplay.setText(" ");
                 buyProperty();
+                
         
         return (String.valueOf(roll));
     }
 
     public void buyProperty(){
-        if((Board.propertiesMap.get(location)).getOwner().equals("none")&&Board.propertiesMap.get(location).cost<=money){
+        String g ="";
+        if((Board.propertiesMap.get(location)).getOwner().equals("none")&&Board.propertiesMap.get(location).cost<=money&&(Board.propertiesMap.get(location)).isBuyable()){
             properties.add(Board.propertiesMap.get(location));
         System.out.println(Board.propertiesMap.get(location).getName());
         money-=Board.propertiesMap.get(location).cost;
-        Board.propertiesMap.get(location).owner = name;
+        Board.propertiesMap.get(location).setOwner(name);
+        }
+        else if(!(Board.propertiesMap.get(location).getOwner().equals(name))&&Board.propertiesMap.get(location).isRentable()){
+            money-= Board.propertiesMap.get(location).getRent();
+            
+            for(int i =0; i<Monopoly.allPlayers.size();i++){
+                if((Monopoly.allPlayers.get(i).getName().equals(Board.propertiesMap.get(location).getOwner()))){
+                    Monopoly.allPlayers.get(i).money+=Board.propertiesMap.get(location).getRent();
+                    System.out.print(Monopoly.allPlayers.get(i).getName() + " got paid $" + Board.propertiesMap.get(location).getRent() + " by " + name + " at ");
+                    g+=Monopoly.allPlayers.get(i).getName() + " got paid $" + Board.propertiesMap.get(location).getRent() + " by " + name + " at ";
+                }
+
+            }
+            
+            
+            
+            System.out.println(Board.propertiesMap.get(location).getName()+ " | ");
+            g+=Board.propertiesMap.get(location).getName();
+            
+            Display.paymentDisplay.setText(g);
+            Display.boardPanel.repaint();
+            Display.frame.repaint();
+            
+
+        }
     }
-}
+
 
     //TODO FIX
     public String getName(){
