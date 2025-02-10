@@ -3,16 +3,16 @@ import java.awt.Color;
 
 public class Property {
     
-    Color color;
-    String name;
-    String owner;
+    private Color color;
+    private String name;
+    private String owner;
     
-    int numHouses;
-    int cost;
-    int rent;
-    int houseCost;
-    boolean buyable;
-    boolean rentable;
+   private int numHouses;
+    private int cost;
+    private int rent;
+    private int houseCost;
+    private boolean buyable;
+    private boolean rentable;
     
 
     

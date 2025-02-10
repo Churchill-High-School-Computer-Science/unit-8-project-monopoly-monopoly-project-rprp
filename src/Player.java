@@ -1,19 +1,14 @@
 
 import java.util.ArrayList;
-
 import javax.swing.SwingUtilities;
-
 import java.lang.Math;
-
 public class Player {
 
+    private String name;
+    private int money;
+    private ArrayList<Property> properties = new ArrayList<Property>();
+    private int location;
 
-    String name;
-    int money;
-    ArrayList<Property> properties = new ArrayList<Property>();
-    int location;
-
-    
     public Player(String n){
         this.name = n;
         money = 1500;
@@ -25,8 +20,6 @@ public class Player {
         money+=mAdd;
     }
 
-
-    
     public String rollDice(){
         int d1 = (int)Math.ceil(Math.random()*6);
         int d2 = (int)Math.ceil(Math.random()*6);
@@ -42,17 +35,16 @@ public class Player {
                 Monopoly.turn = 0;
                 Display.paymentDisplay.setText(" ");
                 buyProperty();
-                
-        
+
         return (String.valueOf(roll));
     }
 
     public void buyProperty(){
         String g ="";
-        if((Board.propertiesMap.get(location)).getOwner().equals("none")&&Board.propertiesMap.get(location).cost<=money&&(Board.propertiesMap.get(location)).isBuyable()){
+        if((Board.propertiesMap.get(location)).getOwner().equals("none")&&Board.propertiesMap.get(location).getCost()<=money&&(Board.propertiesMap.get(location)).isBuyable()){
             properties.add(Board.propertiesMap.get(location));
         System.out.println(Board.propertiesMap.get(location).getName());
-        money-=Board.propertiesMap.get(location).cost;
+        money-=Board.propertiesMap.get(location).getCost();
         Board.propertiesMap.get(location).setOwner(name);
         }
         else if(!(Board.propertiesMap.get(location).getOwner().equals(name))&&Board.propertiesMap.get(location).isRentable()){
@@ -66,9 +58,6 @@ public class Player {
                 }
 
             }
-            
-            
-            
             System.out.println(Board.propertiesMap.get(location).getName()+ " | ");
             g+=Board.propertiesMap.get(location).getName();
             
