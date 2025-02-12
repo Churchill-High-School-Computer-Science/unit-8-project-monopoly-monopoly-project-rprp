@@ -44,12 +44,17 @@ public class Player {
         if((Board.propertiesMap.get(location)).getOwner().equals("jail")){
             location = 10;
             System.out.println(name + " was sent to jail");
+            Display.paymentDisplay.setText(g);
+            Display.boardPanel.repaint();
+            Display.frame.repaint();
         }
-        if((Board.propertiesMap.get(location)).getOwner().equals("none")&&Board.propertiesMap.get(location).getCost()<=money&&(Board.propertiesMap.get(location)).isBuyable()){
-            properties.add(Board.propertiesMap.get(location));
+        else if((Board.propertiesMap.get(location)).getOwner().equals("none")&&Board.propertiesMap.get(location).getCost()<=money&&(Board.propertiesMap.get(location)).isBuyable()){
+        properties.add(Board.propertiesMap.get(location));
         System.out.println(Board.propertiesMap.get(location).getName());
         money-=Board.propertiesMap.get(location).getCost();
         Board.propertiesMap.get(location).setOwner(name);
+
+        
         }
         else if(!(Board.propertiesMap.get(location).getOwner().equals(name))&&Board.propertiesMap.get(location).isRentable()){
             money-= Board.propertiesMap.get(location).getRent();
