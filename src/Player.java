@@ -41,6 +41,10 @@ public class Player {
 
     public void buyProperty(){
         String g ="";
+        if((Board.propertiesMap.get(location)).getOwner().equals("jail")){
+            location = 10;
+            System.out.println(name + " was sent to jail");
+        }
         if((Board.propertiesMap.get(location)).getOwner().equals("none")&&Board.propertiesMap.get(location).getCost()<=money&&(Board.propertiesMap.get(location)).isBuyable()){
             properties.add(Board.propertiesMap.get(location));
         System.out.println(Board.propertiesMap.get(location).getName());

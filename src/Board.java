@@ -75,11 +75,11 @@ public class Board {
         propertiesMap.put(26,properties[4][10]);
         properties[3][10] = new Property("Ventor Avenue", 260, 22, (new Color(255, 255, 51)), 150, "none",true,true);
         propertiesMap.put(27,properties[3][10]);
-        properties[2][10] = new Property("Water Works", 150, 0, Color.BLACK, 0, "none",true,true); //2x dice for rent
+        properties[2][10] = new Property("Water Works", 150, 0, Color.BLACK, 0, "none",true,false); //2x dice for rent
         propertiesMap.put(28,properties[2][10]);
         properties[1][10] = new Property("Marvin Gardens", 280, 24, (new Color(255, 255, 51)), 150, "none",true,true);
         propertiesMap.put(29,properties[1][10]);
-        properties[0][10] = new Property("Go to Jail", 0, 0, Color.BLACK, 0, "none",false,false);
+        properties[0][10] = new Property("Go to Jail", 0, 0, Color.BLACK, 0, "jail",false,false);
         propertiesMap.put(30,properties[0][10]);
         
 
