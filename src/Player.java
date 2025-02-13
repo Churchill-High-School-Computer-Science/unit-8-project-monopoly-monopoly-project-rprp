@@ -8,10 +8,12 @@ public class Player {
     private int money;
     private ArrayList<Property> properties = new ArrayList<Property>();
     private int location;
+    private boolean injail;
 
     public Player(String n){
         this.name = n;
         money = 1500;
+        injail = false;
         
         location = 0;
     }
@@ -21,6 +23,13 @@ public class Player {
     }
 
     public String rollDice(){
+        if(injail){
+            injail = false;
+            Monopoly.turn++;
+            return "0";
+
+        }
+        else{
         int d1 = (int)Math.ceil(Math.random()*6);
         int d2 = (int)Math.ceil(Math.random()*6);
 
@@ -37,6 +46,7 @@ public class Player {
                 buyProperty();
 
         return (String.valueOf(roll));
+        }
     }
 
     public void buyProperty(){
@@ -44,6 +54,7 @@ public class Player {
         if((Board.propertiesMap.get(location)).getOwner().equals("jail")){
             location = 10;
             System.out.println(name + " was sent to jail");
+            injail =true;
             Display.paymentDisplay.setText(g);
             Display.boardPanel.repaint();
             Display.frame.repaint();
@@ -82,6 +93,10 @@ public class Player {
     //TODO FIX
     public String getName(){
         return name;
+    }
+
+    public boolean getJail(){
+        return injail;
     }
 
     ///TODO FIX

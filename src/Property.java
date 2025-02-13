@@ -19,7 +19,7 @@ public class Property {
     public Property(String n, int cB, int r, Color c, int cH, String o,boolean buyable,boolean rentable){
             color = c;
             name = n;
-            owner = "none";
+            owner = o;
             numHouses = 0;
             cost = cB;
             rent = r;
@@ -39,6 +39,8 @@ public class Property {
     public int getCost(){
         return cost;
     }
+
+    
 
     //TODO fix
     public String getName(){

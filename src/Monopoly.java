@@ -26,6 +26,12 @@ public class Monopoly {
         Display.players.add(Tyler);
         allPlayers.add(Tyler);
 
+        if(Monopoly.allPlayers.get(Monopoly.turn).getJail()){
+            
+            System.out.println("Skipped " + Monopoly.allPlayers.get(Monopoly.turn).getName() + "'s turn.");
+            turn++;
+        }
+
         SwingUtilities.invokeLater(() -> Display.setupFrame());
         
         
